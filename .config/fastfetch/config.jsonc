@@ -1,0 +1,103 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",        // Logo type: auto, builtin, small, file, etc.
+    "source": "~/.config/fastfetch/ascii_art/temple.txt",
+    "width": 21,           // Width in characters (for image logos)
+    "height": 15,          // Height in characters (for image logos)
+    "padding": {
+        "top": 1,          // Top padding
+        "left": 5,         // Left padding
+        "right": 5         // Right padding
+    },
+    "color": {             // Override logo colors
+        "1": "blue"
+    }
+  },
+  "display": {
+      "separator": "=> ",
+      "color": {
+          "separator": "blue"
+      },
+      "constants": [
+          "───────────────────────────────────────────────────────────────────────────",
+          "│\u001b[72C   │\u001b[72D",
+          "│\u001b[75C│\u001b[75D"
+      ]
+  },
+  "modules": [
+        {
+            "format": "{#1}{#keys}╭{$1}╮\u001b[76D {user-name-colored}{at-symbol-colored}{host-name-colored} ",
+            "type": "title"
+        },
+        {
+            "format": "{#1}{#keys}{$3}{#34}match {#32}sys {#33}{ ",
+            "type": "custom"
+        },
+        {
+            "key": "{$2}{#31} kernel   ",
+            "type": "kernel"
+        },
+        {
+            "key": "{$2}{#32}󰅐 uptime   ",
+            "type": "uptime"
+        },
+        {
+            "key": "{$2}{#33}{icon} distro   ",
+            "type": "os"
+        },
+        {
+            "key": "{$2}{#35} term     ",
+            "type": "terminal"
+        },
+        {
+            "key": "{$2}{#36} shell    ",
+            "type": "shell"
+        },
+        {
+            "key": "{$2}{#35}󰍛 cpu      ",
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "temp": true
+        },
+        {
+            "key": "{$2}{#34}󰍛 gpu      ",
+            "type": "gpu"
+        },
+        {
+            "key": "{$2}{#33}󰉉 disk     ",
+            "type": "disk",
+            "folders": "/"
+        },
+        {
+            "key": "{$2}{#32} memory   ",
+            "type": "memory"
+        },
+        {
+            "key": "{$2}{#31}󰩟 network  ",
+            "type": "localip",
+            "format": "{ipv4} ({ifname})"
+        },
+        {
+            "key": "{$2}{#33} wifi     ",
+            "type": "wifi",
+            "format": "{ssid}"
+        },
+        {
+            "format": "{#1}{#keys}{$3}{#33}}",
+            "type": "custom"
+        },
+        {
+            "format": "{#1}{#keys}├{$1}┤",
+            "type": "custom"
+        },
+        {
+            "type": "custom",
+            "format": "{#1}{#keys}{$3}{#39}    \u001b[90m        \u001b[31m        \u001b[32m        \u001b[33m        \u001b[34m        \u001b[35m        \u001b[36m        \u001b[37m"
+        },
+        {
+            "format": "{#1}{#keys}╰{$1}╯",
+            "type": "custom"
+        }
+  ]
+}
