@@ -9,6 +9,20 @@ vim.g.have_nerd_font = true
 --  NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+vim.opt.winborder = 'rounded'
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TelescopeFindPre',
+  callback = function()
+    vim.opt_local.winborder = 'none'
+    vim.api.nvim_create_autocmd('WinLeave', {
+      once = true,
+      callback = function()
+        vim.opt_local.winborder = 'rounded'
+      end,
+    })
+  end,
+})
+
 vim.opt.autochdir = true
 
 -- Make line numbers default
